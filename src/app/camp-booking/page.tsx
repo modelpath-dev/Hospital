@@ -1,10 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const CampBookingPage = () => {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     phoneNumber: '',
@@ -25,29 +24,46 @@ const CampBookingPage = () => {
     setIsSubmitting(true);
 
     try {
-      // Send data to Google Sheets
-      const response = await fetch('/api/camp-booking', {
+      // Send email notification
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: '',
+          phone: formData.phoneNumber,
+          message: `Camp Booking Request:
+          
+Name: ${formData.name}
+Phone: ${formData.phoneNumber}
+Preferred Date: ${formData.checkingDate}
+Preferred Time: ${formData.preferableTime}
+
+This is a camp booking request. Please contact the patient to confirm their appointment.`,
+          subject: 'New Camp Booking Request'
+        }),
       });
 
       const result = await response.json();
 
       if (result.success) {
-        // Store booking data for payment
-        localStorage.setItem('campBookingData', JSON.stringify(formData));
+        alert('🎉 Booking request submitted successfully! We will contact you soon to confirm your appointment.');
         
-        // Redirect to payment page
-        router.push('/payment');
+        // Reset form
+        setFormData({
+          name: '',
+          phoneNumber: '',
+          checkingDate: '',
+          preferableTime: ''
+        });
       } else {
-        alert('Failed to book session. Please try again.');
+        alert('Failed to submit booking request. Please try again or call us directly.');
       }
     } catch (error) {
       console.error('Booking error:', error);
-      alert('Something went wrong. Please try again.');
+      alert('Something went wrong. Please try again or call us directly at +91 98600 40607');
     }
 
     setIsSubmitting(false);
@@ -160,7 +176,7 @@ const CampBookingPage = () => {
                   Processing...
                 </span>
               ) : (
-                '💳 Book Session & Proceed to Payment'
+                '� Submit Booking Request'
               )}
             </button>
           </form>
@@ -172,19 +188,19 @@ const CampBookingPage = () => {
               <li>• Free comprehensive eye examination</li>
               <li>• Expert consultation with qualified doctors</li>
               <li>• Prescription and recommendations if needed</li>
-              <li>• Small registration fee to confirm your slot</li>
+              <li>• We'll contact you to confirm your appointment</li>
             </ul>
           </div>
         </div>
 
         {/* Back to Home */}
         <div className="text-center mt-8">
-          <button 
-            onClick={() => router.push('/')}
+          <Link 
+            href="/"
             className="text-orange-500 hover:text-orange-600 font-medium"
           >
             ← Back to Home
-          </button>
+          </Link>
         </div>
       </div>
     </div>
