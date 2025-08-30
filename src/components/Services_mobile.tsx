@@ -151,6 +151,15 @@ const Services = () => {
                       ))}
                     </div>
                   </div>
+
+                  {/* Pricing */}
+                  <div className="bg-green-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-green-800 mb-1 text-sm flex items-center">
+                      <span className="mr-2">💰</span>
+                      Cost Range:
+                    </h4>
+                    <p className="text-green-700 font-bold text-lg">{service.pricing}</p>
+                  </div>
                 </div>
               </div>
             </div>
