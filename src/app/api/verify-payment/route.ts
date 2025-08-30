@@ -74,7 +74,13 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function sendConfirmationEmail(bookingData: any, paymentId: string) {
+async function sendConfirmationEmail(bookingData: {
+  name: string;
+  phoneNumber: string;
+  checkingDate: string;
+  preferableTime: string;
+  email?: string;
+}, paymentId: string) {
   try {
     const transporter = nodemailer.createTransport({
       service: 'gmail',

@@ -4,14 +4,8 @@ export async function POST(request: NextRequest) {
   try {
     const { name, phoneNumber, checkingDate, preferableTime } = await request.json();
 
-    // Google Sheets API endpoint
-    const SHEET_ID = '1TUEllYi5NNeQTiZdwkSVFjQy7Jqt_3Fax44g5mLNSrQ';
-    const RANGE = 'Sheet1!A:D'; // Adjust range based on your sheet structure
-    
-    // For now, we'll use a simple approach with Google Apps Script
-    // You'll need to create a Google Apps Script web app that accepts POST requests
-    
-    const scriptUrl = process.env.GOOGLE_SCRIPT_URL; // We'll set this up
+    // Google Apps Script web app URL for Google Sheets integration
+    const scriptUrl = process.env.GOOGLE_SCRIPT_URL;
     
     if (scriptUrl) {
       const response = await fetch(scriptUrl, {
