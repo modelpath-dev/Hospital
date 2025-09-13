@@ -218,14 +218,14 @@ export default function CataractSurgery() {
 
             {/* Book Appointment */}
             <div className="bg-blue-500 text-white rounded-lg p-6 mb-8">
-              <h3 className="text-xl font-bold mb-4">📅 Free Consultation</h3>
-              <p className="mb-4">Get a free cataract evaluation and discuss your options with our expert doctors.</p>
+              <h3 className="text-xl font-bold mb-4">📅 Professional Consultation</h3>
+              <p className="mb-4">Get a comprehensive cataract evaluation and discuss your treatment options with our expert doctors.</p>
               <div className="space-y-3">
                 <button className="w-full bg-white text-blue-500 font-semibold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
-                  📞 Call for Free Consultation
+                  📞 Book Consultation
                 </button>
                 <button className="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
-                  💻 Book Online Assessment
+                  💻 Schedule Assessment
                 </button>
               </div>
             </div>

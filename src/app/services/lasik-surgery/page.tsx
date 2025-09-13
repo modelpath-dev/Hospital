@@ -76,7 +76,7 @@ export default function LasikSurgery() {
                 <div className="flex items-start">
                   <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 mt-1 text-sm font-bold">1</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-800 mb-2">Free Consultation & Tests (1-2 hours)</h4>
+                    <h4 className="text-xl font-semibold text-gray-800 mb-2">Initial Consultation & Tests (1-2 hours)</h4>
                     <p className="text-gray-600">We check if you're suitable for LASIK. We measure your eyes thoroughly and answer all your questions.</p>
                   </div>
                 </div>
@@ -220,16 +220,16 @@ export default function LasikSurgery() {
               </div>
             </div>
 
-            {/* Free Assessment */}
+            {/* Professional Assessment */}
             <div className="bg-blue-500 text-white rounded-lg p-6 mb-8">
-              <h3 className="text-xl font-bold mb-4">🔍 Free LASIK Assessment</h3>
-              <p className="mb-4">Find out if you're suitable for LASIK with our comprehensive free evaluation.</p>
+              <h3 className="text-xl font-bold mb-4">🔍 LASIK Suitability Assessment</h3>
+              <p className="mb-4">Find out if you're suitable for LASIK with our comprehensive professional evaluation.</p>
               <div className="space-y-3">
                 <button className="w-full bg-white text-blue-500 font-semibold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
-                  📞 Book Free Assessment
+                  📞 Book Assessment
                 </button>
                 <button className="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
-                  💻 Online Screening Test
+                  💻 Schedule Consultation
                 </button>
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function LasikSurgery() {
               <div className="space-y-3 text-sm">
                 <div>
                   <p className="font-semibold text-gray-800">Day 1:</p>
-                  <p className="text-gray-600">Free consultation & tests</p>
+                  <p className="text-gray-600">Initial consultation & tests</p>
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Day 2-7:</p>

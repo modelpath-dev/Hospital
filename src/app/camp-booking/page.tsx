@@ -34,14 +34,14 @@ const CampBookingPage = () => {
           name: formData.name,
           email: '',
           phone: formData.phoneNumber,
-          message: `Camp Booking Request:
+          message: `Eye Check-up Appointment Request:
           
 Name: ${formData.name}
 Phone: ${formData.phoneNumber}
 Preferred Date: ${formData.checkingDate}
 Preferred Time: ${formData.preferableTime}
 
-This is a camp booking request. Please contact the patient to confirm their appointment.`,
+This is an appointment request. Please contact the patient to confirm their consultation appointment and discuss consultation fees.`,
           subject: 'New Camp Booking Request'
         }),
       });
@@ -75,10 +75,10 @@ This is a camp booking request. Please contact the patient to confirm their appo
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">
-            🏕️ Camp Booking Form
+            👁️ Eye Consultation Booking
           </h1>
           <p className="text-gray-600">
-            Fill in your details to book a free eye check-up session
+            Fill in your details to schedule your eye consultation appointment
           </p>
         </div>
 
@@ -185,10 +185,10 @@ This is a camp booking request. Please contact the patient to confirm their appo
           <div className="mt-6 p-4 bg-orange-50 rounded-lg">
             <h4 className="font-semibold text-orange-800 mb-2">📋 What to Expect:</h4>
             <ul className="text-sm text-orange-700 space-y-1">
-              <li>• Free comprehensive eye examination</li>
-              <li>• Expert consultation with qualified doctors</li>
-              <li>• Prescription and recommendations if needed</li>
-              <li>• We'll contact you to confirm your appointment</li>
+              <li>• Comprehensive eye examination by qualified doctors</li>
+              <li>• Professional consultation and diagnosis</li>
+              <li>• Prescription and treatment recommendations</li>
+              <li>• We'll contact you to confirm appointment and discuss consultation fees</li>
             </ul>
           </div>
         </div>

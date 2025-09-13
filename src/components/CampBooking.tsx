@@ -10,10 +10,10 @@ const CampBooking = () => {
           {/* Header */}
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-4 text-gray-800">
-              🏕️ Free Eye Check-up Camp
+              👁️ Eye Care Consultation
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Join our community eye care camps for free comprehensive eye examinations
+              Schedule your professional eye examination with our experienced doctors
             </p>
           </div>
 
@@ -25,9 +25,9 @@ const CampBooking = () => {
               <p className="text-sm text-gray-600">Experienced eye specialists</p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <div className="text-3xl mb-3">🆓</div>
-              <h3 className="font-semibold text-gray-800 mb-2">Completely Free</h3>
-              <p className="text-sm text-gray-600">No charges for consultation</p>
+              <div className="text-3xl mb-3">💰</div>
+              <h3 className="font-semibold text-gray-800 mb-2">Professional Service</h3>
+              <p className="text-sm text-gray-600">Quality care with consultation fees</p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-md">
               <div className="text-3xl mb-3">📍</div>
@@ -39,21 +39,21 @@ const CampBooking = () => {
           {/* Call to Action */}
           <div className="bg-white rounded-xl p-8 shadow-lg border-2 border-orange-200">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Book Your Free Eye Check-up
+              Schedule Your Eye Consultation
             </h3>
             <p className="text-gray-600 mb-6">
-              Reserve your slot for our upcoming eye care camps in your area
+              Book your appointment for professional eye care services
             </p>
             
             <Link 
               href="/camp-booking"
               className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform hover:scale-105"
             >
-              📅 Book Camp Session
+              📅 Book Appointment
             </Link>
             
             <div className="mt-4 text-sm text-gray-500">
-              <p>✅ Free consultation • ✅ Expert advice • ✅ Prescription if needed</p>
+              <p>✅ Professional consultation • ✅ Expert diagnosis • ✅ Treatment recommendations</p>
             </div>
           </div>
         </div>

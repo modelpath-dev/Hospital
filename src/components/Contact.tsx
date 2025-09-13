@@ -219,16 +219,16 @@ Partani Eye Care Website
               <h3 className="text-xl font-bold mb-4 text-gray-800">Office Hours</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Monday - Saturday</span>
-                  <span className="text-gray-800 font-medium">10:00 AM - 8:00 PM</span>
+                  <span className="text-gray-600">Monday - Friday</span>
+                  <span className="text-gray-800 font-medium">9:00 AM - 7:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Sunday</span>
-                  <span className="text-gray-800 font-medium">10:00 AM - 2:00 PM</span>
+                  <span className="text-gray-600">Saturday & Sunday</span>
+                  <span className="text-red-600 font-medium">Closed (Holiday)</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Emergency</span>
-                  <span className="text-gray-800 font-medium">24/7 Available</span>
+                  <span className="text-gray-800 font-medium">Call for Assistance</span>
                 </div>
               </div>
             </div>
@@ -282,7 +282,7 @@ Partani Eye Care Website
               <h3 className="text-xl font-bold mb-2 text-red-800">Emergency Contact</h3>
               <p className="text-red-600 mb-4">For urgent eye emergencies, call us immediately:</p>
               <p className="text-2xl font-bold text-red-800">+91 98600 40607</p>
-              <p className="text-sm text-red-600 mt-2">Available 24/7 for emergency eye care</p>
+              <p className="text-sm text-red-600 mt-2">Call during business hours or leave a message for emergencies</p>
             </div>
 
             {/* Map */}

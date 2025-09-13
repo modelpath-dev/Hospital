@@ -159,10 +159,10 @@ const Services = () => {
 
         {/* Emergency Contact - Mobile Optimized */}
         <div className="mt-8 bg-orange-500 rounded-xl p-6 text-white text-center">
-          <h3 className="text-xl font-bold mb-3">24/7 Emergency Eye Care</h3>
+          <h3 className="text-xl font-bold mb-3">Emergency Eye Care</h3>
           
           <p className="text-orange-100 mb-4 text-sm">
-            Immediate attention for eye emergencies
+            Call for urgent eye care assistance during business hours
           </p>
           
           <a 
