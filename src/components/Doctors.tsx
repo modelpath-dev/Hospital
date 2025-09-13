@@ -95,12 +95,9 @@ const Doctors = () => {
           <p className="mb-6 text-blue-100">
             Ready to experience the best in eye care? Book your appointment with our expert doctors today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <button className="btn-primary bg-white text-blue-500 hover:bg-gray-100">
               Call Now
-            </button>
-            <button className="btn-secondary border-white text-white hover:bg-white hover:text-blue-500">
-              Online Booking
             </button>
           </div>
         </div>
