@@ -1,4 +1,10 @@
+'use client';
+
+import { useState } from 'react';
+
 const Doctors = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
   const doctors = [
     {
       name: "Dr. Sharad Partani",
@@ -45,117 +51,136 @@ const Doctors = () => {
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % doctors.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + doctors.length) % doctors.length);
+  };
+
   return (
-    <section id="doctors" className="py-16 md:py-20 bg-gray-50">
-      <div className="container-max">
+    <section id="doctors" className="py-12 bg-gray-50">
+      <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-            Meet Our Expert Doctors
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-800">
+            👨‍⚕️ Meet Our Expert Doctors
           </h2>
           
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-lg mx-auto text-sm">
             Our team of highly qualified ophthalmologists brings years of experience 
             and expertise to provide you with the best possible eye care.
           </p>
         </div>
 
-        {/* Doctors Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {doctors.map((doctor, index) => (
-            <div key={index} className="card bg-white hover:shadow-xl transition-shadow duration-300">
-              {/* Doctor Header */}
-              <div className="text-center mb-6 border-b border-gray-100 pb-6">
-                <div className="w-28 h-28 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-orange-100 rounded-full flex items-center justify-center">
-                  <svg className="w-14 h-14 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
-                  </svg>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-800 mb-1">{doctor.name}</h3>
-                <p className="text-orange-600 font-semibold text-sm mb-2">{doctor.designation}</p>
-                <p className="text-blue-600 font-medium mb-3">{doctor.specialization}</p>
-                <p className="text-gray-600 text-sm font-medium">{doctor.education}</p>
-                <div className="flex justify-center items-center mt-2">
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    {doctor.experience} Experience
-                  </span>
-                </div>
+        {/* Mobile-First Carousel */}
+        <div className="relative max-w-sm mx-auto">
+          {/* Doctor Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 mx-2">
+            {/* Doctor Header */}
+            <div className="text-center mb-6">
+              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-orange-100 rounded-full flex items-center justify-center">
+                <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
+                </svg>
               </div>
-
-              {/* Doctor Info */}
-              <div className="space-y-6">
-                {/* Description */}
-                <div>
-                  <p className="text-gray-600 text-sm leading-relaxed">{doctor.description}</p>
-                </div>
-
-                {/* Expertise */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
-                    <span className="mr-2">🏥</span> Areas of Expertise
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {doctor.expertise.map((skill, idx) => (
-                      <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200 font-medium">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Key Achievements */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
-                    <span className="mr-2">🏆</span> Key Achievements
-                  </h4>
-                  <ul className="space-y-1">
-                    {doctor.achievements.map((achievement, idx) => (
-                      <li key={idx} className="text-xs text-gray-600 flex items-start">
-                        <span className="text-green-500 mr-2 mt-1">•</span>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Experience Details */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
-                    <span className="mr-2">💼</span> Professional Experience
-                  </h4>
-                  <ul className="space-y-1">
-                    {doctor.experience_details.map((exp, idx) => (
-                      <li key={idx} className="text-xs text-gray-600 flex items-start">
-                        <span className="text-orange-500 mr-2 mt-1">•</span>
-                        {exp}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CTA Button */}
-                <div className="pt-4 border-t border-gray-100">
-                  <button className="btn-secondary w-full font-semibold">
-                    📅 Schedule Consultation
-                  </button>
-                </div>
+              
+              <h3 className="text-xl font-bold text-gray-800 mb-1">{doctors[currentSlide].name}</h3>
+              <p className="text-orange-600 font-semibold text-sm mb-2">{doctors[currentSlide].designation}</p>
+              <p className="text-blue-600 text-sm font-medium mb-2">{doctors[currentSlide].education}</p>
+              <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+                {doctors[currentSlide].experience} Experience
               </div>
             </div>
+
+            {/* Specialization */}
+            <div className="mb-4 p-3 bg-blue-50 rounded-lg">
+              <p className="text-blue-800 text-sm font-medium text-center">
+                {doctors[currentSlide].specialization}
+              </p>
+            </div>
+
+            {/* Description */}
+            <div className="mb-4">
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {doctors[currentSlide].description}
+              </p>
+            </div>
+
+            {/* Expertise Pills */}
+            <div className="mb-4">
+              <h4 className="text-sm font-semibold text-gray-800 mb-2">🏥 Expertise</h4>
+              <div className="flex flex-wrap gap-1">
+                {doctors[currentSlide].expertise.slice(0, 4).map((skill, idx) => (
+                  <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full border border-blue-200">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Key Achievements */}
+            <div className="mb-4">
+              <h4 className="text-sm font-semibold text-gray-800 mb-2">🏆 Highlights</h4>
+              <ul className="space-y-1">
+                {doctors[currentSlide].achievements.slice(0, 3).map((achievement, idx) => (
+                  <li key={idx} className="text-xs text-gray-600 flex items-start">
+                    <span className="text-green-500 mr-2 mt-0.5">•</span>
+                    {achievement}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          <button 
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-orange-500 transition-colors"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-orange-500 transition-colors"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Slide Indicators */}
+        <div className="flex justify-center mt-6 space-x-2">
+          {doctors.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                index === currentSlide 
+                  ? 'bg-orange-500' 
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+            />
           ))}
         </div>
 
-        {/* Contact Section */}
-        <div className="mt-12 text-center bg-blue-500 rounded-lg p-8 text-white">
-          <h3 className="text-2xl font-bold mb-4">Schedule Your Appointment</h3>
-          <p className="mb-6 text-blue-100">
-            Ready to experience the best in eye care? Book your appointment with our expert doctors today.
+        {/* Call to Action */}
+        <div className="mt-8 text-center bg-orange-500 rounded-2xl p-6 mx-4 text-white">
+          <h3 className="text-xl font-bold mb-2">📞 Book Your Appointment</h3>
+          <p className="mb-4 text-orange-100 text-sm">
+            Ready for expert eye care? Contact us today!
           </p>
-          <div className="flex justify-center">
-            <button className="btn-primary bg-white text-blue-500 hover:bg-gray-100">
-              Call Now
-            </button>
-          </div>
+          <a 
+            href="tel:+919860040607"
+            className="inline-block bg-white text-orange-500 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            📞 Call Now
+          </a>
         </div>
       </div>
     </section>
