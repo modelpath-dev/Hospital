@@ -59,9 +59,12 @@ Your current Google Maps link is: `https://maps.app.goo.gl/Tnhuvkfp6wQJpt1f8`
    ```
    GOOGLE_PLACES_API_KEY=your_google_places_api_key_here
    ```
-   With your actual API key:
+   
+   **⚠️ IMPORTANT:** Replace `your_google_places_api_key_here` with your actual Google Places API key from the Google Cloud Console. Never commit actual API keys to version control!
+   
+   Example format (use your real key):
    ```
-   GOOGLE_PLACES_API_KEY=AIzaSyBFw0Qbyq9zTFTd-tUY6dO8X0VLHdLDZSM
+   GOOGLE_PLACES_API_KEY=AIzaSy...YOUR_ACTUAL_KEY_HERE...
    ```
 
 ## Step 4: Test the Integration
