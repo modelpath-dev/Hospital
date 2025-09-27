@@ -290,7 +290,7 @@ Partani Eye Care Website
               <h3 className="text-xl font-bold mb-4 text-gray-800">Location</h3>
               <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.6748534447574!2d73.77582431447563!3d19.993536881472234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebb05730a739%3A0x6c8ad0a06e4c8b7e!2sDr.Partani's%20(%20Maheshwari)%20Eye%20Care%20Hospital%20Nashik!5e0!3m2!1sen!2sin!4v1735112567890!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1874.7060313933498!2d73.78208365657305!3d19.991213195333376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb9ba7050431%3A0xcb1eeeb387d19156!2sDr.Partani&#39;s%20(%20Maheshwari)%20Eye%20Care%20Hospital%20Nashik!5e0!3m2!1sen!2sin!4v1759006198758!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

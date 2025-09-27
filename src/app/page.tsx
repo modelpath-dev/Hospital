@@ -4,6 +4,7 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import CampBooking from '@/components/CampBooking';
 import Doctors from '@/components/Doctors';
+import GoogleReviews from '@/components/GoogleReviews';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <CampBooking />
       <Doctors />
+      <GoogleReviews />
       <Contact />
       <Footer />
     </main>

@@ -225,12 +225,12 @@ export default function LasikSurgery() {
               <h3 className="text-xl font-bold mb-4">🔍 LASIK Suitability Assessment</h3>
               <p className="mb-4">Find out if you're suitable for LASIK with our comprehensive professional evaluation.</p>
               <div className="space-y-3">
-                <button className="w-full bg-white text-blue-500 font-semibold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                <Link href="/camp-booking?type=appointment" className="block w-full bg-white text-blue-500 font-semibold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors text-center">
                   📞 Book Assessment
-                </button>
-                <button className="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                </Link>
+                <Link href="/camp-booking?type=consultation" className="block w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors text-center">
                   💻 Schedule Consultation
-                </button>
+                </Link>
               </div>
             </div>
 

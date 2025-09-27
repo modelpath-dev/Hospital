@@ -74,8 +74,8 @@ const Doctors = () => {
           </p>
         </div>
 
-        {/* Mobile-First Carousel */}
-        <div className="relative max-w-sm mx-auto">
+        {/* Mobile Carousel - Hidden on larger screens */}
+        <div className="md:hidden relative max-w-sm mx-auto">
           {/* Doctor Card */}
           <div className="bg-white rounded-2xl shadow-lg p-6 mx-2">
             {/* Doctor Header */}
@@ -154,8 +154,8 @@ const Doctors = () => {
           </button>
         </div>
 
-        {/* Slide Indicators */}
-        <div className="flex justify-center mt-6 space-x-2">
+        {/* Mobile Slide Indicators */}
+        <div className="md:hidden flex justify-center mt-6 space-x-2">
           {doctors.map((_, index) => (
             <button
               key={index}
@@ -169,18 +169,68 @@ const Doctors = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-8 text-center bg-orange-500 rounded-2xl p-6 mx-4 text-white">
-          <h3 className="text-xl font-bold mb-2">📞 Book Your Appointment</h3>
-          <p className="mb-4 text-orange-100 text-sm">
-            Ready for expert eye care? Contact us today!
-          </p>
-          <a 
-            href="tel:+919860040607"
-            className="inline-block bg-white text-orange-500 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            📞 Call Now
-          </a>
+        {/* Desktop Side by Side Layout - Hidden on mobile */}
+        <div className="hidden md:block">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {doctors.map((doctor, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg p-6">
+                {/* Doctor Header */}
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-orange-100 rounded-full flex items-center justify-center">
+                    <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
+                    </svg>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-800 mb-1">{doctor.name}</h3>
+                  <p className="text-orange-600 font-semibold text-sm mb-2">{doctor.designation}</p>
+                  <p className="text-blue-600 text-sm font-medium mb-2">{doctor.education}</p>
+                  <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+                    {doctor.experience} Experience
+                  </div>
+                </div>
+
+                {/* Specialization */}
+                <div className="mb-4 p-3 bg-blue-50 rounded-lg">
+                  <p className="text-blue-800 text-sm font-medium text-center">
+                    {doctor.specialization}
+                  </p>
+                </div>
+
+                {/* Description */}
+                <div className="mb-4">
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {doctor.description}
+                  </p>
+                </div>
+
+                {/* Expertise Pills */}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-gray-800 mb-2">🏥 Expertise</h4>
+                  <div className="flex flex-wrap gap-1">
+                    {doctor.expertise.slice(0, 4).map((skill, idx) => (
+                      <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full border border-blue-200">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Key Achievements */}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-gray-800 mb-2">🏆 Highlights</h4>
+                  <ul className="space-y-1">
+                    {doctor.achievements.slice(0, 3).map((achievement, idx) => (
+                      <li key={idx} className="text-xs text-gray-600 flex items-start">
+                        <span className="text-green-500 mr-2 mt-0.5">•</span>
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

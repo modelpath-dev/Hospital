@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
-const CampBookingPage = () => {
+// Component that uses useSearchParams wrapped in Suspense
+const CampBookingForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     phoneNumber: '',
@@ -11,6 +13,18 @@ const CampBookingPage = () => {
     preferableTime: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookingType, setBookingType] = useState('consultation');
+  
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const type = searchParams.get('type');
+    if (type === 'appointment') {
+      setBookingType('appointment');
+    } else {
+      setBookingType('consultation');
+    }
+  }, [searchParams]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -24,7 +38,7 @@ const CampBookingPage = () => {
     setIsSubmitting(true);
 
     try {
-      // Send email notification
+      // Send email notification with booking type
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -34,15 +48,16 @@ const CampBookingPage = () => {
           name: formData.name,
           email: '',
           phone: formData.phoneNumber,
-          message: `Eye Check-up Appointment Request:
+          message: `${bookingType === 'appointment' ? 'Appointment' : 'Consultation'} Request:
           
 Name: ${formData.name}
 Phone: ${formData.phoneNumber}
 Preferred Date: ${formData.checkingDate}
 Preferred Time: ${formData.preferableTime}
 
-This is an appointment request. Please contact the patient to confirm their consultation appointment and discuss consultation fees.`,
-          subject: 'New Camp Booking Request'
+This is ${bookingType === 'appointment' ? 'an appointment' : 'a consultation'} request. Please contact the patient to confirm their ${bookingType}.`,
+          subject: `New ${bookingType === 'appointment' ? 'Appointment' : 'Consultation'} Request`,
+          bookingType: bookingType
         }),
       });
 
@@ -75,7 +90,7 @@ This is an appointment request. Please contact the patient to confirm their cons
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">
-            👁️ Eye Consultation Booking
+            👁️ {bookingType === 'appointment' ? 'Appointment Booking Page' : 'Eye Consultation Booking Page'}
           </h1>
           <p className="text-gray-600">
             Fill in your details to schedule your eye consultation appointment
@@ -204,6 +219,22 @@ This is an appointment request. Please contact the patient to confirm their cons
         </div>
       </div>
     </div>
+  );
+};
+
+// Main component with Suspense boundary
+const CampBookingPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading booking form...</p>
+        </div>
+      </div>
+    }>
+      <CampBookingForm />
+    </Suspense>
   );
 };
 

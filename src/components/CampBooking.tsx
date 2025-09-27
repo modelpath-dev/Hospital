@@ -46,7 +46,7 @@ const CampBooking = () => {
             </p>
             
             <Link 
-              href="/camp-booking"
+              href="/camp-booking?type=appointment"
               className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform hover:scale-105"
             >
               📅 Book Appointment

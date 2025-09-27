@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -144,9 +145,9 @@ const About = () => {
 
             {/* CTA Button */}
             <div className="mt-8">
-              <button className="btn-primary">
+              <Link href="/camp-booking?type=consultation" className="btn-primary inline-block">
                 Schedule Consultation
-              </button>
+              </Link>
             </div>
           </div>
 

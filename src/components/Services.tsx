@@ -156,22 +156,6 @@ const Services = () => {
             </div>
           ))}
         </div>
-
-        {/* Emergency Contact - Mobile Optimized */}
-        <div className="mt-8 bg-orange-500 rounded-xl p-6 text-white text-center">
-          <h3 className="text-xl font-bold mb-3">Emergency Eye Care</h3>
-          
-          <p className="text-orange-100 mb-4 text-sm">
-            Call for urgent eye care assistance during business hours
-          </p>
-          
-          <a 
-            href="tel:+919860040607" 
-            className="inline-block bg-white text-orange-500 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors text-sm"
-          >
-            📞 Call: +91 98600 40607
-          </a>
-        </div>
       </div>
     </section>
   );

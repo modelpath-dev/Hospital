@@ -19,7 +19,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Link href="#contact" className="btn-primary">
+            <Link href="/camp-booking?type=consultation" className="btn-primary">
               Book Consultation
             </Link>
             <Link href="#services" className="btn-secondary">

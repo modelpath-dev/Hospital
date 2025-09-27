@@ -221,12 +221,12 @@ export default function CataractSurgery() {
               <h3 className="text-xl font-bold mb-4">📅 Professional Consultation</h3>
               <p className="mb-4">Get a comprehensive cataract evaluation and discuss your treatment options with our expert doctors.</p>
               <div className="space-y-3">
-                <button className="w-full bg-white text-blue-500 font-semibold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                <Link href="/camp-booking?type=consultation" className="block w-full bg-white text-blue-500 font-semibold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors text-center">
                   📞 Book Consultation
-                </button>
-                <button className="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                </Link>
+                <Link href="/camp-booking?type=appointment" className="block w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors text-center">
                   💻 Schedule Assessment
-                </button>
+                </Link>
               </div>
             </div>
 

@@ -45,7 +45,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Link href="#contact" className="btn-primary">
+            <Link href="/camp-booking?type=appointment" className="btn-primary">
               Book Appointment
             </Link>
           </div>
@@ -105,7 +105,7 @@ const Header = () => {
                 Contact
               </Link>
               <Link 
-                href="#contact" 
+                href="/camp-booking?type=appointment" 
                 className="btn-primary mt-3"
                 onClick={() => setIsMenuOpen(false)}
               >

@@ -56,7 +56,7 @@ const PaymentPage = () => {
                   <span className="font-medium">Email:</span> drpartanieyecarenashik@gmail.com
                 </p>
                 <p className="text-gray-700">
-                  <span className="font-medium">Address:</span> H.NO. 17, Panchavati Karanja, Nashik
+                  <span className="font-medium">Address:</span> Shree, Kalika Plaza, Old Agra Rd, opposite Kalika Devi Temple, Shingada Talav, Mumbai Naka, Renuka Nagar, Nashik, Maharashtra 422002
                 </p>
               </div>
             </div>
