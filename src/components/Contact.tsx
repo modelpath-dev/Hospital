@@ -219,11 +219,11 @@ Partani Eye Care Website
               <h3 className="text-xl font-bold mb-4 text-gray-800">Office Hours</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Monday - Friday</span>
+                  <span className="text-gray-600">Monday - Saturday</span>
                   <span className="text-gray-800 font-medium">9:00 AM - 7:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Saturday & Sunday</span>
+                  <span className="text-gray-600">Sunday</span>
                   <span className="text-red-600 font-medium">Closed (Holiday)</span>
                 </div>
                 <div className="flex justify-between">

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 interface Review {
   author_name: string;
@@ -12,6 +12,10 @@ interface Review {
 const GoogleReviews = () => {
   const [expandedReview, setExpandedReview] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   // Hardcoded reviews data from Google Maps
   const placeRating = 4.9;
@@ -143,6 +147,54 @@ const GoogleReviews = () => {
     }
   };
 
+  // Mouse drag handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setIsPaused(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setIsPaused(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setTimeout(() => setIsPaused(false), 1000); // Resume after 1 second
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Touch handlers for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setIsPaused(true);
+    setStartX(e.touches[0].pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    setTimeout(() => setIsPaused(false), 1000); // Resume after 1 second
+  };
+
   const renderStars = (rating: number, size: string = 'w-4 h-4') => {
     return (
       <div className="flex items-center">
@@ -189,8 +241,23 @@ const GoogleReviews = () => {
         </div>
 
         {/* Moving Reviews Carousel */}
-        <div className="overflow-hidden">
-          <div className={`flex space-x-6 ${isPaused ? '' : 'animate-scroll'}`}>
+        <div className="overflow-hidden relative">
+          {/* Scroll instructions */}
+          <div className="absolute top-4 right-4 z-10 bg-black/70 text-white text-xs px-3 py-1 rounded-full opacity-75">
+            👆 Drag to scroll
+          </div>
+          <div 
+            ref={scrollContainerRef}
+            className={`flex space-x-6 ${isPaused || isDragging ? '' : 'animate-scroll'} ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} overflow-x-auto scrollbar-hide`}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
+          >
             {/* Duplicate reviews for seamless loop */}
             {[...reviews, ...reviews].map((review, index) => (
               <div 

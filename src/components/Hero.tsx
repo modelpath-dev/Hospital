@@ -34,7 +34,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative">
                   <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
-                    10K+
+                    200K+
                   </div>
                   <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-300">
                     Happy Patients
