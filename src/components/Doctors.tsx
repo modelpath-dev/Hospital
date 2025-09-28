@@ -10,7 +10,7 @@ const Doctors = () => {
       name: "Dr. Sharad Partani",
       designation: "Director",
       specialization: "Cataract, Refractive, Glaucoma, Oculoplasty And Squint Surgeon",
-      experience: "22+ Years",
+      experience: "20+ Years",
       education: "MBBS, DO, MS, FIOS (UK)",
       expertise: ["Cataract Surgery", "Refractive Surgery", "Glaucoma Treatment", "Oculoplasty", "Squint Surgery", "Pediatric Cataract"],
       description: "Dr. Sharad Partani has been dedicated to ophthalmology since 2002, with over 22 years of invaluable experience. He completed his postgraduate studies at Government Medical College, Nagpur, and received special training in Oculoplasty surgeries at Norfolk And Norwich University, UK.",
